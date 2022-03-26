@@ -1,0 +1,72 @@
+<%- include("./partials/header.ejs") %>
+
+    <div class="container">
+        <div class="left">
+            <h1>Add New Student</h1>
+            <hr>
+            <form method="post">
+                <div class="fromstyle">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" >
+                </div>
+                <div class="fromstyle">
+                    <label for="age">Age</label>
+                    <input type="text" name="age" id="age">
+                </div>
+                <div class="fromstyle">
+                    <label for="Address">Address</label>
+                    <input type="text" name="Address" id="Address">
+                </div>
+                <input class="btn" type="submit" value="submit">
+
+
+            </form>
+        </div>
+        <div class="right">
+            <h1>List of student</h1>
+            <table border="1" cellspacing="0" width="512px">
+                <thead>
+                    <tr>
+                        <th>NO</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Address</th>
+                        <th colspan="2">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% var i=1 %>
+                        <% data.forEach((item)=>{ %>
+                            <tr>
+                                <td>
+                                    <%= i++ %>
+                                </td>
+                                <td>
+                                    <%= item.name %>
+                                </td>
+                                <td>
+                                    <%= item.age %>
+                                </td>
+                                <td>
+                                    <%= item.address %>
+                                </td>
+                                <td>
+                                <form  method="get" action="/student/edit/<%= item._id %>">
+                                <button class="btn">Edit</button>
+                            </form>
+                        </td>
+                                <td>
+                                    <form  method="post" action="/student/delete/<%= item._id %>">
+                                        <button class="btn">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <% }) %>
+
+                </tbody>
+            </table>
+            <hr>
+        </div>
+    </div>
+
+    <%- include("./partials/footer.ejs") %>

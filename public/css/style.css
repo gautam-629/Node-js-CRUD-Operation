@@ -1,0 +1,21 @@
+*{
+    margin:0;
+    padding:0;
+}
+.container{
+    display: flex;
+    justify-content: space-around;
+}
+.fromstyle{
+    font-size: 20px;
+    padding: 5px;
+    margin: 8px;
+}
+.fromstyle input{
+    font-size: 20px;
+}
+.btn{
+    color: #675bcd;
+    font-size: 20px;
+    /* border-radius: 6px; */
+}
